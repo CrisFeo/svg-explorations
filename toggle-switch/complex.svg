@@ -1,0 +1,94 @@
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In  -->
+<svg version="1.1"
+	 	 xmlns="http://www.w3.org/2000/svg"
+		 xmlns:xlink="http://www.w3.org/1999/xlink"
+		 viewBox="0 0 442 200">
+
+	<style type="text/css">
+		.basicBorder {
+			fill:#FFFFFF;
+			stroke:#000000;
+			stroke-miterlimit:10;
+			stroke-width: 1;
+		}
+		.indicator-off {
+			fill: #ED5139;
+		}
+	</style>
+
+	<g id="body">
+		<path id="faceplate" class="basicBorder" d="M433.5,199.5H8.5c-4.4,0-8-3.6-8-8V8.5c0-4.4,3.6-8,8-8h425c4.4,0,8,3.6,8,8v183 C441.5,195.9,437.9,199.5,433.5,199.5z"/>
+		<path id="track" class="basicBorder" onclick="onSwitch(evt)" d="M245.5,174.5c41.4,0,75-33,75-74.4s-33.6-74.4-75-74.4h-145c-41.4,0-75,33-75,74.4 s33.6,74.7,75,74.7L245.5,174.5z"/>
+		<g id="screw_br">
+			<circle class="basicBorder" cx="426.8" cy="184.3" r="6.5"/>
+			<line class="basicBorder" x1="425.5" y1="191" x2="427.8" y2="178.2"/>
+		</g>
+		<g id="screw_bl">
+			<circle class="basicBorder" cx="13.8" cy="184.3" r="6.5"/>
+			<line class="basicBorder" x1="10" y1="190" x2="17.3" y2="179.2"/>
+		</g>
+		<g id="screw_tr">
+			<circle class="basicBorder" cx="426.8" cy="14.3" r="6.5"/>
+			<line class="basicBorder" x1="433" y1="16.1" x2="420.3" y2="13.2"/>
+		</g>
+		<g id="screw_tl">
+			<circle class="basicBorder" cx="13.8" cy="14.3" r="6.5"/>
+			<line class="basicBorder" x1="7.6" y1="17" x2="19.7" y2="12.3"/>
+		</g>
+	</g>
+	<g id="indicator">
+		<circle class="basicBorder" cx="380.8" cy="100.2" r="30.3"/>
+		<circle id="bulb" class="basicBorder indicator-off" cx="380.8" cy="100.2" r="23.9"/>
+	</g>
+	<g id="switch" onclick="onSwitch(evt)">
+		<g>
+			<circle class="basicBorder" cx="99.4" cy="100.4" r="61"/>
+		</g>
+		<g>
+			<path class="basicBorder" d="M85.6,69.9V131c0,1.5-1.2,2.7-2.7,2.7h-3.3c-1.5,0-2.7-1.2-2.7-2.7V69.9c0-1.5,1.2-2.7,2.7-2.7h3.3 C84.4,67.2,85.6,68.4,85.6,69.9z"/>
+			<path class="basicBorder" d="M103.7,69.9V131c0,1.5-1.2,2.7-2.7,2.7h-3.3c-1.5,0-2.7-1.2-2.7-2.7V69.9c0-1.5,1.2-2.7,2.7-2.7h3.3 C102.5,67.2,103.7,68.4,103.7,69.9z"/>
+			<path class="basicBorder" d="M121.9,69.9V131c0,1.5-1.2,2.7-2.7,2.7h-3.3c-1.5,0-2.7-1.2-2.7-2.7V69.9c0-1.5,1.2-2.7,2.7-2.7h3.3 C120.7,67.2,121.9,68.4,121.9,69.9z"/>
+		</g>
+	</g>
+
+	<animate id="track-click-target"
+					 xlink:href="#track"
+					 begin="click"
+					 attributeName="opacity"/>
+	<animateTransform id="switch-anim"
+										xlink:href="#switch"
+				 						begin="click; track-click-target.begin + 0s"
+										attributeName="transform"
+	                  attributeType="XML"
+										type="translate"
+										values="147 0 0; 0 0 0"
+										calcMode="spline"
+				            keyTimes="0; 1"
+				            keySplines="0.165 0.84 0.44 1"
+				            dur="0.4s"
+					 					fill="freeze"/>
+	<animate id="indicator-toggle"
+					 xlink:href="#bulb"
+					 begin="switch-anim.begin + 0.18s"
+ 					 attributeName="fill"
+           values="#78C061; #ED5139"
+           calcMode="spline"
+           keyTimes="0; 1"
+           keySplines="0.165 0.84 0.44 1"
+ 					 dur="0.08s"
+					 fill="freeze"/>
+	<script type="application/javascript">
+		<![CDATA[
+		function toggleAnimation(animation, evt) {
+			var animation = document.getElementById(animation);
+			var values = animation.getAttribute('values').split(';');
+			var reverseValues = values.reverse().join(';');
+			animation.setAttribute('values', reverseValues);
+		}
+		function onSwitch(evt) {
+			toggleAnimation('switch-anim', evt);
+			toggleAnimation('indicator-toggle', evt);
+		}
+		]]>
+	</script>
+</svg>

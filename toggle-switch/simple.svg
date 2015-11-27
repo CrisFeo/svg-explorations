@@ -35,18 +35,18 @@
            values="221.4; 75.4"
            calcMode="spline"
            keyTimes="0; 1"
-           keySplines="0.165 0.84 0.44 1"
-           dur="0.4s"
+           keySplines="1 0 0.16 0.445"
+           dur="0.3s"
            fill="freeze"/>
    <animate id="indicator-toggle"
  					 xlink:href="#body"
- 					 begin="switch-anim.begin + 0.25s"
+ 					 begin="switch-anim.begin + 0s"
  					 attributeName="fill"
            values="#78C061; #ED5139"
            calcMode="spline"
            keyTimes="0; 1"
-           keySplines="0.165 0.84 0.44 1"
- 					 dur="0.15s"
+           keySplines="0.45 0.81 0.03 1"
+ 					 dur="0.3s"
  					 fill="freeze"/>
 
    <script type="application/javascript">
